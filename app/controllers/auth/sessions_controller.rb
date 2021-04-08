@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SessionsController < Devise::SessionsController
+class Auth::SessionsController < Devise::SessionsController
   layout 'authentication'
   # before_action :configure_sign_in_params, only: [:create]
 

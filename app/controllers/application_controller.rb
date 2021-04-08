@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
 
     def after_sign_out_path_for(user)
-        new_user_session_path
+        login_path
     end
 
     def after_sign_in_path_for(user)
@@ -13,8 +13,9 @@ class ApplicationController < ActionController::Base
     private
 
     def resolve_layout
-        case action_name
-        when 'login', 'register'
+        # case action_name
+        # when 'login', 'register'
+        if devise_controller?
         'authentication'
         else
         'dashboard'
