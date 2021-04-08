@@ -17,11 +17,11 @@
 <html>
   <%= render 'shared/head' %>
   <body class="bg-default">
-    <%= render 'pages/logged_out/topnav' %>
+    <%= render 'auth/logged_out/topnav' %>
     <div class="main-content">
-      <%= render partial: 'authentication/header', locals: { title: yield(:title), subtitle: yield(:subtitle) } %>
+      <%= render partial: 'auth/header', locals: { title: yield(:title), subtitle: yield(:subtitle) } %>
       <%= yield %>
     </div>
-    <%= render 'pages/logged_out/footer' %>
+    <%= render 'auth/logged_out/footer' %>
   </body>
 </html>
