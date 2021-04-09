@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: "dashboard#index", as: 'dashboard'
 
   resources :users, except: [:show]
+  resources :dish_types, except: [:show]
   # get 'pages/icons'
   # get 'pages/profile'
   # get 'pages/tables'

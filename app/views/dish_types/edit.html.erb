@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="header-body">
             <%= render partial: 'shared/header', locals: {
-                    icon: 'users',
-                    breadcrumb_1: 'Users',
-                    breadcrumb_2: 'Nouveau'
+                    icon: 'utensils',
+                    breadcrumb_1: 'Type de plat',
+                    breadcrumb_2: @dish_type.name
                 }
             %>
         </div>
@@ -12,21 +12,20 @@
 </div>
 
 <div class="container-fluid mt--6">
-    <div class="row">
-        <div class="col col-sm">
+    <div class="row justify-content-md-center">
+        <div class="col col-sm-8">
             <div class="card">
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Add New User </h3>
+                            <h3 class="mb-0">Modifier le type <%= @dish_type.name %> </h3>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <%= render partial: 'users/profile/form', locals: {
-                            user: @user, 
-                            url: new_user_path,
-                            method: :post
+                    <%= render partial: 'dish_types/form', locals: {
+                            url: dish_type_path(@dish_type),
+                            method: :put
                         } 
                     %>
                 </div>

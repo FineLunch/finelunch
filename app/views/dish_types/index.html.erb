@@ -2,24 +2,23 @@
     <div class="container-fluid">
         <div class="header-body">
             <%= render partial: 'shared/header', locals: {
-            icon: 'users',
-            breadcrumb_1: 'Users',
-            breadcrumb_2: 'Liste'
-      } %>
-            <%#= render 'dashboard/metrics_summary' %>
+                    icon: 'users',
+                    breadcrumb_1: 'Type de plat',
+                    breadcrumb_2: 'Liste'
+                }
+            %>
         </div>
     </div>
 </div>
 
 <div class="container-fluid mt--6">
     <div class="row">
-        <div class="col">
+        <div class="col col-sm">
             <div class="card">
-                <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Liste des utilisateurs</h3>
+                    <h3 class="mb-0">Liste des types de plats</h3>
                     <div class="text-right">
-                        <%= link_to new_user_path, class:"btn btn-sm btn-primary" do  %>
+                        <%= link_to new_dish_type_path, class:"btn btn-sm btn-primary" do  %>
                             <i class="fa fa-plus"></i> Ajouter
                         <% end %>
                     </div>
@@ -30,34 +29,29 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">N</th>
-                                <th scope="col">Pseudo</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">N-</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Extra</th>
+                                <th scope="col">Nombre de plats</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <% @users.each_with_index do |user, index| 
-                                edit_link = edit_user_path(user)
-                                show_link = user_path(user)
+                            <% @dish_types.each_with_index do |dish_type, index| 
+                                edit_link = edit_dish_type_path(dish_type)
+                                show_link = dish_type_path(dish_type)
                             %>
                                 <tr>
                                     <th scope="row">
                                         <%= index %>
                                     </th>
                                     <td>
-                                        <%= user.username %>
+                                        <%= dish_type.name %>
                                     </td>
                                     <td>
-                                        <%= user.email %>
+                                        <%= dish_type.extra %>
                                     </td>
                                     <td>
-                                        <% if current_user.id == user.id %>
-                                            <span class="badge badge-pill badge-success">Actif</span>
-                                        <% else %>
-                                            <span class="badge badge-pill badge-danger">Inactif</span>
-                                        <% end %>
                                     </td>
                                     <td class="text-right">
                                         <%= link_to edit_link, class: "btn btn-sm btn-icon-only text-info", role:"button" do %>
@@ -66,8 +60,8 @@
                                         <a class="btn btn-sm btn-icon-only text-danger button-delete" 
                                             href="javascript:;" 
                                             role="button"
-                                            modal-element-title="l'utilisateur"
-                                            modal-element="<%= user.username %>"
+                                            modal-element-title="le type de plat"
+                                            modal-element="<%= dish_type.name %>"
                                             modal-url="<%= show_link %>">
                                             <%= fa_icon 'trash' %>
                                         </a>
