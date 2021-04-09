@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
     private
 
     def resolve_layout
-        # case action_name
-        # when 'login', 'register'
         if devise_controller?
         'authentication'
         else

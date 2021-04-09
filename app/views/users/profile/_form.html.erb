@@ -1,0 +1,77 @@
+<%= form_for(user, as: user, url: url, html: { method: :method }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: user %>
+  <h6 class="heading-small text-muted mb-4">User information</h6>
+  <div class="pl-lg-4">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :username, class: "form-control-label" %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :email, class: "form-control-label" %><br />
+          <% if method == :post %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <% else %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", disabled: true, class: "form-control" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :firstname, class: "form-control-label" %><br />
+          <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :lastname, class: "form-control-label" %><br />
+          <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :phone_number, class: "form-control-label" %><br />
+          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :address, class: "form-control-label" %><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+  <!-- Description -->
+  <h6 class="heading-small text-muted mb-4">Biographie</h6>
+  <div class="pl-lg-4">
+    <div class="form-group">
+      <%= f.label :bio, class: "form-control-label" %><br />
+      <%= f.text_area :bio, autofocus: true, autocomplete: "bio",  class: "form-control", placeholder:"A few words about you ...", rows: "4" %>
+    </div>
+  </div>
+  <div class="pl-lg-4">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= link_to users_path, class: "btn btn-block btn-outline-secondary" do %>
+          Annuler
+        <% end %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.submit "Enregistrer", class: "btn btn-block btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+  </div>
+<% end %>
+

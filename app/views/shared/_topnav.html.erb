@@ -203,7 +203,7 @@ end
                 <%= image_tag "theme/team-4.jpg", class: "navbar-brand-img", alt: "..." %>
               </span>
               <div class="media-body  ml-2  d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                <span class="mb-0 text-sm  font-weight-bold"><%= current_user.username %></span>
               </div>
             </div>
           </a>
@@ -211,11 +211,13 @@ end
             <div class="dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="#!" class="dropdown-item">
+            <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
-            </a>
-            <a href="#!" class="dropdown-item">
+            <% end %>  
+            <%
+=begin%>
+ <a href="#!" class="dropdown-item">
               <i class="ni ni-settings-gear-65"></i>
               <span>Settings</span>
             </a>
@@ -226,7 +228,9 @@ end
             <a href="#!" class="dropdown-item">
               <i class="ni ni-support-16"></i>
               <span>Support</span>
-            </a>
+            </a> 
+<%
+=end%>
             <div class="dropdown-divider"></div>
             <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
               <i class="ni ni-user-run"></i>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, 
     path: 'auth',
     controllers:
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   end
   root to: 'dashboard#index'
   get 'dashboard', to: "dashboard#index", as: 'dashboard'
+
+  resources :users, except: [:show]
   # get 'pages/icons'
   # get 'pages/profile'
   # get 'pages/tables'

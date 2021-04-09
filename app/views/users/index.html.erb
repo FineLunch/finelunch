@@ -1,0 +1,81 @@
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <%= render partial: 'shared/header', locals: {
+            icon: 'users',
+            breadcrumb_1: 'Users',
+            breadcrumb_2: 'Liste',
+            url: new_user_path,
+            url_text: "Nouveau"
+      } %>
+            <%#= render 'dashboard/metrics_summary' %>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                    <h3 class="mb-0">Liste des utilisateurs</h3>
+                </div>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <!-- Projects table -->
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">N</th>
+                                <th scope="col">Pseudo</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @users.each_with_index do |user, index| 
+                                edit_link = edit_user_path(user)
+                                show_link = user_path(user)
+                            %>
+                                <tr>
+                                    <th scope="row">
+                                        <%= index %>
+                                    </th>
+                                    <td>
+                                        <%= user.username %>
+                                    </td>
+                                    <td>
+                                        <%= user.email %>
+                                    </td>
+                                    <td>
+                                        <% if current_user.id == user.id %>
+                                            <span class="badge badge-pill badge-success">Actif</span>
+                                        <% else %>
+                                            <span class="badge badge-pill badge-danger">Inactif</span>
+                                        <% end %>
+                                    </td>
+                                    <td class="text-right">
+                                        <%= link_to edit_link, class: "btn btn-sm btn-icon-only text-info", role:"button" do %>
+                                            <%= fa_icon 'edit' %>
+                                        <% end %>
+                                        <a class="btn btn-sm btn-icon-only text-danger button-delete" 
+                                            href="javascript:;" 
+                                            role="button"
+                                            modal-element-title="l'utilisateur"
+                                            modal-element="<%= user.username %>"
+                                            modal-url="<%= show_link %>">
+                                            <%= fa_icon 'trash' %>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <%= render  "shared/delete_modal" %>
+            </div>
+        </div>
+    </div>
+</div>
