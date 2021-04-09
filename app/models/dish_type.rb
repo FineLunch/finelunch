@@ -1,4 +1,6 @@
 class DishType < ApplicationRecord
+
+    has_many :dishes, dependent: :destroy
     validates_uniqueness_of :name
 
     validates :name, presence: true, length: {maximum: 50, minimum: 2 }

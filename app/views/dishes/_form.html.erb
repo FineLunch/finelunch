@@ -1,0 +1,58 @@
+<%= simple_form_for @dish, url: url, authenticity_token: true, html: { method: method, class: "form" } do |f| %>
+  <% if @dish.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>There was an error saving the record:</strong>
+      <ul>
+        <% @dish.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+  <div class="pl-lg-4">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+            <%= f.input :dish_type_id, collection: @dish_types %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :name, class: "form-control-label" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= f.label :price, class: "form-control-label" %><br />
+          <%= f.number_field :price, autofocus: true, autocomplete: "price", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg">
+        <div class="form-group">
+          <%= f.label :description, class: "form-control-label" %><br />
+          <%= f.text_area :description, cols: 30, rows: 5, autofocus: true, autocomplete: "description", class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  <div class="pl-lg-4">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= link_to dishes_path, class: "btn btn-outline-default" do %>
+          Annuler
+        <% end %>
+        <%= f.submit "Enregistrer", class: "btn  btn-primary" %>
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+  </div>
+
+  </div>
+<% end %>

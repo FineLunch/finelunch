@@ -24,17 +24,23 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to users_path, flash: { success: "Les données ont bien été enregistrées." }
-    else 
-      render :edit
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to users_path, notice: 'User  was successfully updated.' }
+        format.json { render :edit, status: :created, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     @user.destroy
-
-    redirect_to users_path
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   protected

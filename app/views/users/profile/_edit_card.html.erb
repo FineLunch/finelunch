@@ -9,7 +9,7 @@
   <div class="card-body">
     <%= render partial: 'users/profile/form', locals: {
             user: @user,
-            url: edit_user_path(@user),
+            url: user_path(@user),
             method: :put
           } 
     %>

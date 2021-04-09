@@ -16,6 +16,18 @@
         <div class="col col-sm">
             <div class="card">
                 <div class="card-header border-0">
+                    <div class="row mb-2">
+                        <div class="col-12 col-lg-6">
+                            <% if notice %>
+                                <%= render partial: 'shared/alerts/dismissable', locals: {
+                                    message: notice,
+                                    icon_class: 'ni ni-like-2',
+                                    alert_type: 'alert-success',
+                                    dismissible: true
+                                } %>
+                            <% end %>
+                        </div>
+                    </div>
                     <h3 class="mb-0">Liste des types de plats</h3>
                     <div class="text-right">
                         <%= link_to new_dish_type_path, class:"btn btn-sm btn-primary" do  %>
@@ -33,7 +45,8 @@
                                 <th scope="col">Nom</th>
                                 <th scope="col">Extra</th>
                                 <th scope="col">Nombre de plats</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col">Created at</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +65,9 @@
                                         <%= dish_type.extra %>
                                     </td>
                                     <td>
+                                        <%= dish_type.dishes.count %>
                                     </td>
+                                    <td><%= dish_type.created_at %>
                                     <td class="text-right">
                                         <%= link_to edit_link, class: "btn btn-sm btn-icon-only text-info", role:"button" do %>
                                             <%= fa_icon 'edit' %>

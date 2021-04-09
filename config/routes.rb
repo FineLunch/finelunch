@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:show]
   resources :dish_types, except: [:show]
+  resources :dishes
   # get 'pages/icons'
   # get 'pages/profile'
   # get 'pages/tables'
