@@ -3,7 +3,7 @@
 Finelunch is a Rails app with an integrated Bootstrap Dashboard theme. It's built with the Argon theme from [Creative Tim](https://www.creative-tim.com/product/argon-dashboard/?ref=dinosaas.com).
 
 
-![Argon Dashboard](https://res.cloudinary.com/do0vbqz18/image/upload/v1599750892/DinoSaas/argon-dashboard.png)
+![Finelunch Dashboard](https://res.cloudinary.com/finelunch/image/upload/v1618334365/Capture_d_e%CC%81cran_2021-04-13_a%CC%80_17.15.46_kcrqw1.png)
 
 ## Getting Started
 Clone the repo:
