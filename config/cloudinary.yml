@@ -1,0 +1,18 @@
+development:
+  cloud_name: finelunch
+  api_key: '311987768461511'
+  api_secret: gEcGb2sHqndYAPBfQMyVqtSlgkw
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: finelunch
+  api_key: '311987768461511'
+  api_secret: gEcGb2sHqndYAPBfQMyVqtSlgkw
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: finelunch
+  api_key: '311987768461511'
+  api_secret: gEcGb2sHqndYAPBfQMyVqtSlgkw
+  enhance_image_tag: true
+  static_file_support: false

@@ -70,7 +70,10 @@
                                         <%= dish.price %>
                                     </td>
                                     <td>
-                                        <%= dish.picture_url %>
+                                        <div class="avatar-group">
+
+                                            <%= image_tag(dish.picture_url_url, class: "avatar avatar-sm rounded-circle") %>
+                                        </div>
                                     </td>
                                     <td>
                                         <%= dish.dish_type.name %>

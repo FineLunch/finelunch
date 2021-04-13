@@ -13,14 +13,10 @@
 
 <div class="container-fluid mt--6">
     <div class="row justify-content-md-center">
-        <div class="col col-sm-8">
+        <div class="col col-sm-6">
             <div class="card">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-0">Modifier le plat <%= @dish.name %> </h3>
-                        </div>
-                    </div>
+                <div class="card-header text-center" style="width: 25rem;">
+                    <%= image_tag(@dish.picture_url.url, :alt => @dish.name, :class => "card-img-top") %>
                 </div>
                 <div class="card-body">
                     <%= render partial: 'dishes/form', locals: {
